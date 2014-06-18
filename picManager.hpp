@@ -8,8 +8,8 @@ will construct a list
 
 */
 
-#ifndef _DIRWALKER_HPP_
-#define _DIRWALKER_HPP_
+#ifndef _PICMANAGER_HPP_
+#define _PICMANAGER_HPP_
 
 #include <boost/filesystem.hpp>
 #include <boost/foreach.hpp>
@@ -17,29 +17,14 @@ will construct a list
 #include <iostream>
 #include <vector>
 
-class DirWalker {
+class PicManager {
 
 public:
-  DirWalker();
-  DirWalker(boost::filesystem::path path, std::string ext);
-  ~DirWalker();
-
-  void createList(boost::filesystem::path p);
-  void printList();
-  bool addExtension();
-  bool setPath(boost::filesystem::path p);
+  PicManager();
+  ~PicManager();
 
 private:
 
-  std::string m_extension;
-  boost::filesystem::path m_path;
-  std::vector<std::string> m_vAcceptedExtensions;
-  std::vector<boost::filesystem::path> m_vSubDirs;
-
-  static std::vector<std::string> m_vPixList;
-
-  void initAcceptedExtensions();
-  bool isPic(boost::filesystem::path p);
 
 };
 

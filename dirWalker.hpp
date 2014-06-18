@@ -16,6 +16,7 @@ will construct a list
 
 #include <iostream>
 #include <vector>
+#include <map>
 
 class DirWalker {
 
@@ -35,6 +36,7 @@ private:
   boost::filesystem::path m_path;
   std::vector<std::string> m_vAcceptedExtensions;
 
+  static std::map<boost::filesystem::path, boost::filesystem::path> m_picMap;
   static std::vector<std::string> m_vPixList;
 	static std::string m_prevWriteTime;
 

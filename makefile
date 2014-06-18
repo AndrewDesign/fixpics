@@ -14,9 +14,12 @@ fixPictures_main.o : fixPictures_main.cpp dirWalker.hpp
 dirWalker.o : dirWalker.hpp dirWalker.cpp
 	$(CC) $(CFLAGS) dirWalker.cpp
 
+picManager.o : picManager.hpp picManager.cpp
+	$(CC) $(CFLAGS) picManager.cpp
+
 clean:
-	\rm *.o *~ program
+	\rm *.o program
 
 tar:
-	tar cfv fixPics.tar fixPictures_main.cpp dirWalker.cpp dirWalker.hpp
+	tar cfv fixPics.tar fixPictures_main.cpp dirWalker.cpp dirWalker.hpp picManager.cpp picManager.hpp
 
