@@ -2,6 +2,7 @@
 
 PicManager::PicManager()
 {
+  int blah;
 }
 
 PicManager::~PicManager()

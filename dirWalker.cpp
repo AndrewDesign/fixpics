@@ -65,31 +65,31 @@ void DirWalker::createList(fs::path p)
       if(fs::is_directory(i->path()))
         createList(i->path());
       if(isPic(i->path()))
+			{
         m_vPixList.push_back(i->path().string()); 
-
+        std::cout << i->path().filename().string() << "\t";
+			}
 
       // todo: here's where we left off:
-			// right now the code below should be moved to another method which creates a map
-			// out of the list of pics from m_vPixList.  m_vPixList needs to just be the list
-			// of all pics in the directory and subdirectories initially provided.
+      // above this comment, m_vPixList has a string vector of all paths.
+      // we can change that 
 
-			// when that list is compiled, then we can go and figure out which destination
-			// folders they'll be in.  so this createList method should end on line 68.
-			// also need to do some housekeeping on init lists with the map private member variable
-			std::time_t lastWriteTime = fs::last_write_time(i->path());
-			std::string ctime = std::ctime(&lastWriteTime);
-			std::string monthDay, year;
-			std::stringstream ss;
-		  ss << ctime;
+      std::time_t lastWriteTime = fs::last_write_time(i->path());
+      std::string ctime = std::ctime(&lastWriteTime);
+      std::string monthDay, year;
+      std::stringstream ss;
+      ss << ctime;
 				
 			monthDay = ctime.substr(0, 10);
 			year = ctime.substr(20, 4);
 
 			std::string prevFolderName = monthDay + " " + year;
 
+      std::cout << prevFolderName << std::endl;
+
 			if(prevFolderName != m_prevWriteTime)
 			{
-				std::cout << prevFolderName << std::endl;
+				//std::cout << prevFolderName << std::endl;
 				m_prevWriteTime = prevFolderName;
 			}
     }
